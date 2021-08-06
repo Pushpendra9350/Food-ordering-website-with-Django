@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<hr><hr><hr><hr>
+<div class="container">
+    <div class="row">
+        <h1 class="h3 mb-5">Contact US</h1>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <input type="name" class="form-control" id="exampleInputName" placeholder="Your Full Name...">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Email Address...">
+                </div> 
+                <div class="form-group">
+                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                </div>
+                    <button type="submit" class="btn btn-outline-warning btn-lg btn-block">Submit</button>
+            </form>
+        </div>
+        <div class="m-5">
+            <h5>Address: <small class="mt-5 text-muted">Venkatadri IT Park, HP Avenue, Konnappana, Electronic city, Bengaluru, Karnataka 560069</small></h5>
+            <hr>
+            <h5>Email: <small class="text-muted">info@foodorder.com</small></h5>
+            <hr>
+            <h5>Contact: <small class="text-muted">+91 98765 10278 || +91 76589 14244</small></h5>
+        </div>
+    </div>
+</div>
+{% endblock content %}

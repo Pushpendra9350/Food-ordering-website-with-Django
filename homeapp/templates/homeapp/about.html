@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<hr><hr><hr><hr>
+<style>
+     .card-img-top
+    {
+        width: 50%;
+    }
+    .card-deck{
+      margin: 100px;
+      margin-top: 50px;
+    }
+    @media screen and (max-width: 600px) {
+      .card-deck{
+        margin: 30px;
+        margin-top: 50px;
+      }
+    }
+  </style>
+<div class="container">
+    <div class="h3">
+        About Us
+    </div>
+    <div class="container">
+        <ul>
+            <li>
+                Launched in 2010, Our technology platform connects customers
+            </li>
+            <li>
+                restaurant partners and delivery partners, serving their multiple needs
+            </li>
+            <li>
+                Customers use our platform to search and discover restaurants
+            </li>
+            <li>
+                customer generated reviews and view and upload photos, order food delivery, book a table and make payments while dining-out at restaurants.
+            </li>
+            <li>
+                we provide restaurant partners with industry-specific marketing tools which enable them to engage and acquire customers to grow their business while also providing a reliable and efficient last mile delivery service.
+            </li>
+        </ul>
+    </div>
+</div>
+<div>
+    <h2 style="text-align: center; margin:20px">Our Top Partners</h2>
+    </div>
+
+<div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" src="{% static 'homeapp/img4.jpg' %}" alt="Card image cap">
+      
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="{% static 'homeapp/img5.jpg' %}" alt="Card image cap">
+      
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="{% static 'homeapp/img6.jpg' %}" alt="Card image cap">
+      
+    </div>
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script>
+  window.initializeCarousel=()=>{
+    $("carouselExampleSlidesOnly").carousel({interval:300});
+  }
+</script>
+<style>
+ 
+  .card-deck{
+    margin: 100px;
+    margin-top: 50px;
+  }
+  @media screen and (max-width: 600px) {
+    .card-deck{
+      margin: 30px;
+      margin-top: 50px;
+    }
+  }
+</style>
+<hr>
+<hr>
+<hr>
+<div id="carouselExampleSlidesOnly" class="carousel slide mb-3" data-ride="carousel">
+  
+  <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src='{% static "homeapp/slideimg2.jpg" %}' alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src='{% static "homeapp/slideimg4.jpg" %}' alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src='{% static "homeapp/slideimg3.jpg" %}' alt="Third slide">
+      </div>
+    </div>
+  </div>
+
+<div>
+<h2 style="text-align: center;">Top restaurant in spotlight</h2>
+<hr>
+</div>
+  <div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" src='{% static "homeapp/img3.jpg" %}' alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">This Place Is Known For</h5>
+        <p class="card-text">
+          Good Food and Good Service, Proper Packaging, Elaborate Menu, Customizable Food, Worth the Money, Great Portions</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"><strong>Restaurant: Health Fit</strong></small>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src='{% static "homeapp/img2.jpg" %}' alt="Card image cap" width=300>
+      <div class="card-body">
+        <h5 class="card-title">This Place Is Known For</h5>
+        <p class="card-text">Highly Recommended, Tasty Stuff, Many Choices, Economical, Worth the Price, Not very Crowded</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"><strong>Restaurant: Tandoori Taste</strong></small>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src='{% static "homeapp/img1.jpg" %}' alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">This Place Is Known For</h5>
+        <p class="card-text">Highly Recommended, Tasty Stuff, Many Choices, Economical, Worth the Price, Not very Crowded</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"><strong>Restaurant: Punjabi Tadka</strong></small>
+      </div>
+    </div>
+  </div>
+
+
+  
+{% endblock %}

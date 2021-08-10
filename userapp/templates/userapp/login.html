@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block cssfile %}
+	<link rel="stylesheet" href="{% static 'userapp/style.css' %}" >
+{% endblock cssfile %}
+{% block content %}
+<div class="container">
+	<div class="regform">
+	<div class="card bg-light">
+		<div class="card-header">User Login form</div>
+	<div class="card-body">
+		<h5 class="card-title text-center">Login Now</h5>
+			<form class="border border-light formpad" action="", method="post" id="register">
+				{%csrf_token%}
+                <div class="form-group">
+					<label for="username">Username</label>
+					<input type="text" class="form-control" id="username" placeholder="Username here">
+				</div>
+				<div class="form-group">
+					<label for="password1">Password</label>
+					<input type='password' class="form-control" id="password1" placeholder="Password here">
+				</div>
+				<input id="registr" class="float-right btn btn-outline-primary" type="submit" text="Register"> 
+			</form>
+            <div class="sign-up">
+                Don't have an account? <a href="{% url 'register' %}">Register</a>
+            </div> 
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}

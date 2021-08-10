@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block cssfile %}
+	<link rel="stylesheet" href="{% static 'userapp/style.css' %}" >
+{% endblock cssfile %}
+{% block content %}
+<div class="container">
+	<div class="regform">
+		<div class="card bg-light">
+			<div class="card-header">User Registration form</div>
+		<div class="card-body">
+			<h5 class="card-title text-center">Register Now</h5>
+				<form class="border border-light formpad" action="", method="post" id="register">
+					{%csrf_token%}
+					{% for fields in user %}
+						<div class="form-group">
+							<label for="name">{{fields.label_tag}}</label>
+							<br>
+							{{fields}}
+						</div>
+					{% endfor %}
+					{% for fields in userext %}
+						<div class="form-group">
+							<label for="name">{{fields.label_tag}}</label>
+							<br>
+							{{fields}}
+						</div>
+					{% endfor %}
+					
+					
+					<input id="regist" class="float-right btn btn-outline-primary" type="submit">
+				</form>
+				<div class="sign-up">
+					Already have an account? <a href="{% url 'login' %}">Log In</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script> 
+	
+	window.onload = function() {
+		document.getElementById('id_first_name').className = "form-control";
+		document.getElementById('id_username').className = "form-control";
+		document.getElementById('id_email').className = "form-control";
+		document.getElementById('id_password1').className = "form-control";
+		document.getElementById('id_password2').className = "form-control";
+		document.getElementById('id_usertype').className = "form-control";
+		document.getElementById('id_address').className = "form-control";
+	  };
+</script> 
+
+
+{% endblock %}

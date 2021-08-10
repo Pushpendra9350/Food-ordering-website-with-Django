@@ -15,9 +15,7 @@ def about(request):
 
 def contact(request):
     try:
-        print("HI")
         return render(request, 'homeapp/contact.html')
         
     except:
-        print("BY")
         return render(request, '404.html',status=404)

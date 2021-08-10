@@ -1,0 +1,19 @@
+.regform{
+    padding: 3em;
+}
+@media screen and (max-width: 600px) {
+.regform{
+    padding: 0em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+}
+.formpad{
+    padding: 50px;
+}
+@media screen and (max-width: 600px) {
+.formpad{
+    padding: 0px;
+    
+}
+}

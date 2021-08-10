@@ -1,25 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block  cssfile%}
+  <link rel="stylesheet" href="{% static 'homeapp/homeapp.css' %}" >
+{% endblock cssfile %}
 {% block content %}
-<hr><hr><hr><hr>
 <style>
-     .card-img-top
-    {
-        width: 50%;
-    }
-    .card-deck{
-      margin: 100px;
-      margin-top: 50px;
-    }
-    @media screen and (max-width: 600px) {
-      .card-deck{
-        margin: 30px;
-        margin-top: 50px;
-      }
-    }
+    
   </style>
 <div class="container">
-    <div class="h3">
+    <div class="h3 pt-2">
         About Us
     </div>
     <div class="container">
@@ -42,23 +31,29 @@
         </ul>
     </div>
 </div>
-<div>
-    <h2 style="text-align: center; margin:20px">Our Top Partners</h2>
-    </div>
 
-<div class="card-deck">
-    <div class="card">
-      <img class="card-img-top" src="{% static 'homeapp/img4.jpg' %}" alt="Card image cap">
-      
+<div>
+  <h2 style="text-align: center; margin:20px">Our Top Partners</h2>
+</div>
+
+<div class="container">
+  <hr>  
+    <div class="row">
+      <div class="col-sm m-5">
+        <div class="card ">
+          <img class="card-img-top" src="{% static 'homeapp/img4.jpg' %}" alt="Card image cap">
+        </div>
     </div>
-    <div class="card">
-      <img class="card-img-top" src="{% static 'homeapp/img5.jpg' %}" alt="Card image cap">
-      
+    <div class="col-sm m-5">
+      <div class="card">
+        <img class="card-img-top" src="{% static 'homeapp/img5.jpg' %}" alt="Card image cap">
+      </div>
     </div>
-    <div class="card">
-      <img class="card-img-top" src="{% static 'homeapp/img6.jpg' %}" alt="Card image cap">
-      
+    <div class="col-sm m-5">
+      <div class="card">
+        <img class="card-img-top" src="{% static 'homeapp/img6.jpg' %}" alt="Card image cap">
+      </div>
     </div>
   </div>
-
+</div>
 {% endblock content %}

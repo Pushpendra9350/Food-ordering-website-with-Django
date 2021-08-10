@@ -1,4 +1,17 @@
+.navbar-nav {
+  margin-left: auto;
+}
 
+.shadow{
+  box-shadow: 1px 1px 5px rgb(206, 206, 206);
+  text-shadow: 1px 1px 5px rgb(206, 206, 206)
+}
+.footer{
+background-image: linear-gradient(to right, rgb(255, 153, 0) , rgb(255, 204, 38));
+}
+body{
+margin-top: 70px;
+}
 svg {
     position: absolute;
     top: 50%;

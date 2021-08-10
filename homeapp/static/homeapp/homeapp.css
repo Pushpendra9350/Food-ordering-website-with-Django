@@ -1,4 +1,10 @@
-.card-img-top img{
-    width: 500;
-    height: 300;
+.card-deck{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+@media screen and (max-width: 600px) {
+  .card-deck{
+    margin: 30px;
+    margin-top: 50px;
+  }
 }

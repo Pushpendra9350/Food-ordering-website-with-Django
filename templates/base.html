@@ -6,20 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        .navbar-nav {
-            margin-left: auto;
-        }
-        
-        .shadow{
-            box-shadow: 1px 1px 5px rgb(206, 206, 206);
-            text-shadow: 1px 1px 5px rgb(206, 206, 206)
-        }
-       .footer{
-        background-image: linear-gradient(to right, rgb(255, 153, 0) , rgb(255, 204, 38));
-       }
-        
-    </style>
+    <link rel="stylesheet" href="{% static 'style.css' %}" >
     {% block cssfile %}
     {% endblock %}
     <title>Order Your Food</title>
@@ -28,8 +15,8 @@
     <section>
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white pr-5 pl-5 pt-0 pb-0 shadow">
             <nav class="navbar navbar-light">
-                <img src="{% static 'food-delivery-logo.jpg' %}" width="45" class="d-inline-block align-top" alt="">
-                <a class="navbar-brand h2 mt-2 ml-2" href="#">
+                <img href="{% url 'index' %}" src="{% static 'food-delivery-logo.jpg' %}" width="45" class="d-inline-block align-top" alt="">
+                <a class="navbar-brand h2 mt-2 ml-2" href="{% url 'index' %}">
                    Food Order
                 </a>
               </nav>
@@ -48,10 +35,10 @@
                   <a class="nav-link" href='{% url "contact" %}'>Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href='#'>Login</a>
+                  <a class="nav-link" href='{% url "login" %}'>Login</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href='#'>Register</a>
+                  <a class="nav-link" href='{% url "register" %}'>Register</a>
                 </li>
               </ul>
             </div>
@@ -89,7 +76,10 @@
             <a class="text-dark" href='{% url "contact" %}'>Contect Us</a>
           </li>
           <li>
-            <a class="text-dark" href='#'>Login</a>
+            <a class="text-dark" href='{% url "login" %}'>Login</a>
+          </li>
+          <li>
+            <a class="text-dark" href='{% url "register" %}'>Register</a>
           </li>
         </ul>
 

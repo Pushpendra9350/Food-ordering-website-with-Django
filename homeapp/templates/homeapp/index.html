@@ -1,29 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block cssfile %}
+  <link rel="stylesheet" href="{% static 'homeapp/homeapp.css'%}" >
+{% endblock cssfile %}
 {% block content %}
 <script>
   window.initializeCarousel=()=>{
     $("carouselExampleSlidesOnly").carousel({interval:300});
   }
 </script>
-<style>
- 
-  .card-deck{
-    margin: 100px;
-    margin-top: 50px;
-  }
-  @media screen and (max-width: 600px) {
-    .card-deck{
-      margin: 30px;
-      margin-top: 50px;
-    }
-  }
-</style>
-<hr>
-<hr>
-<hr>
+
 <div id="carouselExampleSlidesOnly" class="carousel slide mb-3" data-ride="carousel">
-  
   <div class="carousel-inner">
       <div class="carousel-item active">
         <img class="d-block w-100" src='{% static "homeapp/slideimg2.jpg" %}' alt="First slide">
@@ -37,6 +24,7 @@
     </div>
   </div>
 
+<div class="container">
 <div>
 <h2 style="text-align: center;">Top restaurant in spotlight</h2>
 <hr>
@@ -74,7 +62,7 @@
       </div>
     </div>
   </div>
-
+</div>
 
   
 {% endblock %}

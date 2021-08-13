@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'style.css' %}" >
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+  
     {% block cssfile %}
     {% endblock %}
     <title>Order Your Food</title>
@@ -34,25 +36,36 @@
                 <li class="nav-item">
                   <a class="nav-link" href='{% url "contact" %}'>Contact</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href='{% url "login" %}'>Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href='{% url "register" %}'>Register</a>
-                </li>
+                {% if user.is_authenticated %}
+                  <li class="nav-item">
+                    <a id="myorder" class="nav-link" href='{% url "myorderpage" %}'>My Orders</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href='{% url "logout" %}'>Logout</a>
+                  </li>
+                {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link" href='{% url "login" %}'>Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href='{% url "register" %}'>Register</a>
+                  </li>
+                {% endif %}
+                
               </ul>
             </div>
           </nav>
     </section>
 
-    {% block content %}
-    {% endblock %}
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-<footer class=" page-footer font-small footer pt-4">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script>src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"</script>
+      {% block content %}
+      {% endblock %}
+<footer class="page-footer font-small footer pt-4">
   <div class="container-fluid text-center text-md-left">
     <div class="row">
       <div class="col-md-8 mt-md-0 mt-3">
@@ -75,12 +88,7 @@
           <li>
             <a class="text-dark" href='{% url "contact" %}'>Contect Us</a>
           </li>
-          <li>
-            <a class="text-dark" href='{% url "login" %}'>Login</a>
-          </li>
-          <li>
-            <a class="text-dark" href='{% url "register" %}'>Register</a>
-          </li>
+          
         </ul>
 
       </div>

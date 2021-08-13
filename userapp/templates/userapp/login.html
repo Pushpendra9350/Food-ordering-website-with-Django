@@ -10,17 +10,28 @@
 		<div class="card-header">User Login form</div>
 	<div class="card-body">
 		<h5 class="card-title text-center">Login Now</h5>
-			<form class="border border-light formpad" action="", method="post" id="register">
+		{% if reg_message or log_message %}
+			{% if reg_message %}
+				<div class="alert alert-success" role="alert">
+					{{reg_message}}
+				</div>
+			{% else %}
+				<div class="alert alert-danger" role="alert">
+					{{log_message}}
+				</div>
+			{% endif %}
+		{% endif %}
+			<form class="border border-light formpad" action="{% url 'login_user' %}" method="post">
 				{%csrf_token%}
                 <div class="form-group">
 					<label for="username">Username</label>
-					<input type="text" class="form-control" id="username" placeholder="Username here">
+					<input type="text" name="username" class="form-control" id="username" placeholder="Enter username">
 				</div>
 				<div class="form-group">
 					<label for="password1">Password</label>
-					<input type='password' class="form-control" id="password1" placeholder="Password here">
+					<input type='password' name='password' class="form-control" id="password1" placeholder="Enter password">
 				</div>
-				<input id="registr" class="float-right btn btn-outline-primary" type="submit" text="Register"> 
+				<button id="registr" class="float-right btn btn-outline-primary" type="submit" text="Register">Login</button>
 			</form>
             <div class="sign-up">
                 Don't have an account? <a href="{% url 'register' %}">Register</a>

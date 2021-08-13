@@ -33,6 +33,8 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'userapp.apps.UserappConfig',
+    'dishapp.apps.DishappConfig',
+    'myorderapp.apps.MyorderappConfig',
     'whitenoise.runserver_nostatic',
     'homeapp.apps.HomeappConfig',
     'django.contrib.admin',
@@ -132,3 +134,4 @@ STATIC_ROOT = os.path.join(BASE_DIR,"static")
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = '/index'

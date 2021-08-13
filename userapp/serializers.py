@@ -8,14 +8,11 @@ class NewUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
-    
     def validate(self, data):
         if data["first_name"]:
             for i in data["first_name"]:
                 if i.isdigit():
-                    raise serializers.ValidationError({"error":"Name does not conatin numeric values"})
-        # if not validate_email(data['email']):
-        #     raise serializers.ValidationError({"error":"Email is in wrong format"})
+                    raise serializers.ValidationError({"error":"Name should not conatin numeric values"})
         return data
     
 class UserExtensionSerializer(serializers.ModelSerializer):

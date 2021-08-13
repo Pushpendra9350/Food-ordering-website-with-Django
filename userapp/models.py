@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class Userextension(models.Model):
     user_type= [
-        ('C', 'Normal User'),
+        ('C', 'Customer'),
         ('R', 'Restaurant')]
     usertype = models.CharField(max_length = 1,choices = user_type)
     address = models.CharField(max_length = 100)

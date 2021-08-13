@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block cssfile %}
+	<link rel="stylesheet" href="{% static 'dishapp/style.css' %}" >
+{% endblock cssfile %}
+{% block content %}
+<div class="container">
+	<div class="regform">
+        <div class="card bg-light">
+            <div class="card-header">Select a Restaurant</div>
+            <div class="card-body">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %}alert-danger{% endif %}" role="alert">{{ message }}</div>
+                    {% endfor %}
+			    {% endif %}
+                <form action="{% url 'getdishes' %}" method="POST">
+                    {% csrf_token %}
+                <select name="id" required id="restaurant_code" class="form-select form-control" onchange="Func_a()">
+                    <option value="2" selected> Select One </option>
+                    {% for rest,user_id in restaurants %}
+                        <option value={{user_id}}>{{rest}}</option>
+                    {% endfor %}
+                  </select>
+                  <button id="select" class="float-right btn btn-outline-primary mt-3" type="submit">Select</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if dishes %}
+<div class="container">
+    <h3 class="pt-3">Resaurant: {{restauro}}</h3>
+    <h4 class="text-center pt-3">All Dishes</h4>
+    <div class="d-flex justify-content-between pl-3 pr-3 bgcolor p-2 m-3">
+        <div class="p-2 noshaword">Dish Name</div>
+        <div class="p-2 noshaword">Dish Price</div>
+        <div class="p-2 noshaword">Add To Your Order</div>
+    </div>
+
+        <form method="POST" action="{% url 'order_details' %}">
+            {% csrf_token %}
+        {% for dish in dishes %}
+            <div class="card p-2 m-3 shadowcls bg-white rounded">
+                <div class="d-flex justify-content-between pl-3 pr-3">
+                    <div class="p-2 noshaword">{{dish.dishname}}</div>
+                    <div class="p-2 noshaword">{{dish.dishprice}}</div>
+                    <input name="id" value={{dish.id}} type="checkbox" class="mt-3">
+                </div>
+           </div>
+        {% endfor %}
+        <div class="p-2 mb-5">
+        <button id="placeorder" class="float-right btn btn-outline-primary" type="submit">Place Order</button>
+    </div>
+    </form>
+    </div>
+    
+
+    </div>
+</div>
+    {% endif %}
+{% endblock content %}

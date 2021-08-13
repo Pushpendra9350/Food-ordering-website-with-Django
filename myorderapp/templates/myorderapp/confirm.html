@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block cssfile %}
+	<link rel="stylesheet" href="{% static 'myorderapp/style.css' %}" >
+{% endblock cssfile %}
+{% block content %}
+<div class="container">
+	<div class="regform">
+        <div class="card bg-light">
+            <div class="card-header">Confirm Message</div>
+            <div class="card-body">
+                {% if orderplced %}
+                        <div class="alert alert-success %}" role="alert">{{ orderplced }}</div>
+			    {% endif %}
+                  <a href="{% url 'index' %}" class="float-right btn btn-outline-primary mt-3" type="submit">Click to continue</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

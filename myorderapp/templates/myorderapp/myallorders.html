@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block cssfile %}
+	<link rel="stylesheet" href="{% static 'myorderapp/style.css' %}" >
+{% endblock cssfile %}
+{% block content %}
+<div class="container mb-3 mt-3">
+    <div class="card bg-light p-5">
+        <div class="card-header h3">All Orders</div>
+    <table class="table table-triped table-bordered mydatatable" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Dish Name</th>
+                <th>Dish Price</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+    </table>
+</div>
+</div>
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: "{% url 'myallorders' %}",
+            type: "GET",
+            header: {"accept":"application/json;odata=verbose",
+                    "content-type":"application/json;odata=verbose",
+                },
+            success: function(data){
+                console.log("Hello")
+                console.log(data)
+                $(".mydatatable").DataTable({
+                    order: [[2,"desc"]],
+                    "data":data,
+                    columns: [
+                            { 'data': 'dish' },
+                            { 'data': 'price' },
+                            { 'data': 'date' }]
+                });
+            },
+            error:function(){
+                console.log("Failed To load data")
+            }
+        });
+    });
+</script>
+{% endblock content %}

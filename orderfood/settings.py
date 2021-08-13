@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-uo33yd+nc8d$q%_$&q=7*f5!(sejxzrk&_j8svb5kuc5hc&6la'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,12 +83,14 @@ WSGI_APPLICATION = 'orderfood.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dasjhqpivshaah',
+        'HOST': 'ec2-35-168-145-180.compute-1.amazonaws.com',
+        'PORT':5432,
+        'USER':'xckypjkylbzahc',
+        'PASSWORD':'06bd6bf9450759b45b5ea1263b1c35c2faf15458b9355fe5b22d07bea64a9393'
     }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 

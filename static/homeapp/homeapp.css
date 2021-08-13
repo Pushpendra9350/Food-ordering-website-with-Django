@@ -1,6 +1,7 @@
 .card-deck{
   margin-top: 50px;
   margin-bottom: 50px;
+  text-shadow: none;
 }
 @media screen and (max-width: 600px) {
   .card-deck{

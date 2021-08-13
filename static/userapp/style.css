@@ -1,5 +1,6 @@
 .regform{
     padding: 3em;
+    text-shadow: none;
 }
 @media screen and (max-width: 600px) {
 .regform{

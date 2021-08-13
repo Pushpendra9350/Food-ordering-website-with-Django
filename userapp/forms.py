@@ -4,7 +4,6 @@ from .models import Userextension
 from django.contrib.auth.forms import UserCreationForm
 
 
-#To make user registration forms 
 class userRegisterForm(UserCreationForm):
     class Meta:
         model = User
